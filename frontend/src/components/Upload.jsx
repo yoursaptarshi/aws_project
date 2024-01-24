@@ -16,7 +16,7 @@ let data;
       formData.append('file', selectedFile);
     try {
         console.log({formData})
-        data = await axios.post("http://127.0.0.1:5000/post",formData)
+        data = await axios.post("http://15.206.45.43:5000/post",formData)
         console.log(data.data.key)
         setObjectId("Your File Key is:"+data.data.key)
     } catch (error) {
