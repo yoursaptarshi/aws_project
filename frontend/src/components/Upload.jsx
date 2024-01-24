@@ -31,22 +31,24 @@ let data;
   
 
   return (
-    <div className="main_upload_container">
-      <div className="main_upload_input">
+    <div className="main_upload_container" style={{display:'flex',alignItems:'center',justifyContent:'center',backgroundColor:'grey',minWidth:'100vw',minHeight:'100vh'}}>
+    <div className="main_upload_child_container" style={{minWidth:'75vw',minHeight:'75vh',backgroundColor:'white',display:'flex',alignItems:'center',justifyContent:'center',flexDirection:'column'}}>
+    <div className="main_upload_input" style={{margin:'2vw'}}>
       <form encType="multipart/form-data">
   <input type="file"  onChange={handleFileChange} />
   </form>
 
       </div>
-      <div className="main_upload_submit">
-      <button onClick={handleUpload}>Upload</button>
+      <div className="main_upload_submit" style={{margin:'2vw'}}>
+      <button onClick={handleUpload} style={{backgroundColor:'cyan',minWidth:'15vh',minHeight:'5vh',borderRadius:'5vh'}}>Upload</button>
       </div>
-      <div className="main_upload_key_container">
+      <div className="main_upload_key_container" style={{margin:'2vw'}}>
         <p>Your Secret Key Will be generated Once You Upload Your file, Copy it and keep it with you</p>
        <div className="main_upload_key" style={{display:'none'}}>
         {objectId}
        </div>
       </div>
+    </div>
     </div>
   );
 };

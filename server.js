@@ -3,7 +3,6 @@ const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
 const express = require("express");
 const axios = require('axios');
 const fileUpload = require('express-fileupload')
-const fs = require('fs')
 const cors =require('cors')
 const PORT =5000;
 
@@ -11,6 +10,7 @@ const app = express();
 
 
 //middlewares
+require("dotenv").config({ path: "./config.env" });
 app.use(express.json());
 app.use(express.urlencoded({extended:true,limit: '50mb'}))
 app.use(fileUpload());
@@ -33,11 +33,11 @@ const postObject  = async(req,res)=>{
         }
        
         const clientParams = {
-            region:'ap-south-1',
+            region:process.env.region,
 
             credentials:{
-                accessKeyId:'AKIA3YFZ73OKNS2V6ZDS',
-                secretAccessKey:'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'
+                accessKeyId:process.env.accessKeyId,
+            secretAccessKey:process.env.secretAccessKey
             }
         }
         
@@ -89,11 +89,11 @@ const getObject =async(req,res)=>{
     }
     
     const clientParams = {
-        region:'ap-south-1',
+        region:process.env.region,
 
         credentials:{
-            accessKeyId:'AKIA3YFZ73OKNS2V6ZDS',
-            secretAccessKey:'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'
+            accessKeyId:process.env.accessKeyId,
+            secretAccessKey:process.env.secretAccessKey
         }
     }
     const getObjectParams = {
@@ -121,28 +121,36 @@ const deleteObject = async(req,res)=>{
         const {key} = req.body;
         
         if(!key){
-            
+            console.log(2)
             return res.status(400).json({
                 success:false,
                 message:'Give a key first'
             })
         }
-        
+      
         const clientParams = {
-            region:'ap-south-1',
+            region:process.env.region,
     
             credentials:{
-                accessKeyId:'AKIA3YFZ73OKNS2V6ZDS',
-                secretAccessKey:'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'
+                accessKeyId:process.env.accessKeyId,
+                secretAccessKey:process.env.secretAccessKey
             }
         }
+       
         const deleteObjectParams = {
             Bucket:'project-yoursaptarshi',
             Key:key,          
         }
+        
         const client = new S3Client(clientParams);
         const command = new DeleteObjectCommand(deleteObjectParams);
-        await client.send(command);
+       
+        try {
+            await client.send(command);
+        } catch (error) {
+            console.log(error)
+        }
+        
         res.status(200).json({
             success:true,
             message:'File Deleted Successfully'
