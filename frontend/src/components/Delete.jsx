@@ -8,7 +8,7 @@ const Delete = () => {
   const submitHandler = async()=>{
     try {
       console.log(key)
-      const data = await axios.post("http://127.0.0.1:5000/delete",{key:key})
+      const data = await axios.post("http://15.206.45.43:5000/delete",{key:key})
       setMsg(data.data.message);
     } catch (error) {
       setMsg("Failedto delete file")
