@@ -7,6 +7,7 @@ function App() {
   return (
   <BrowserRouter>
   <Routes>
+    <Route path="/" element={<Upload/>}/>
     <Route path="/upload" element={<Upload/>}/>
     <Route path="/show" element={<Show/>}/>
     <Route path="/delete" element={<Delete/>}/>
