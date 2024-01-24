@@ -33,11 +33,11 @@ const postObject  = async(req,res)=>{
         }
        
         const clientParams = {
-            region:process.env.region,
+            region:'ap-south-1',
 
             credentials:{
-                accessKeyId:process.env.accessKeyId,
-            secretAccessKey:process.env.secretAccessKey
+                accessKeyId:'AKIA3YFZ73OKNS2V6ZDS',
+            secretAccessKey:'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'
             }
         }
         
@@ -89,11 +89,11 @@ const getObject =async(req,res)=>{
     }
     
     const clientParams = {
-        region:process.env.region,
+        region:'ap-south-1',
 
         credentials:{
-            accessKeyId:process.env.accessKeyId,
-            secretAccessKey:process.env.secretAccessKey
+            accessKeyId:'AKIA3YFZ73OKNS2V6ZDS',
+        secretAccessKey:'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'
         }
     }
     const getObjectParams = {
@@ -129,11 +129,11 @@ const deleteObject = async(req,res)=>{
         }
       
         const clientParams = {
-            region:process.env.region,
-    
+            region:'ap-south-1',
+
             credentials:{
-                accessKeyId:process.env.accessKeyId,
-                secretAccessKey:process.env.secretAccessKey
+                accessKeyId:'AKIA3YFZ73OKNS2V6ZDS',
+            secretAccessKey:'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'
             }
         }
        
