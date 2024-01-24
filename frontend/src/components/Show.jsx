@@ -9,7 +9,7 @@ const Show = () => {
     const div = document.querySelector(".show_download_button")
     try {
       
- let data = await axios.post("http://127.0.0.1:5000/get",{key:key})
+ let data = await axios.post("http://15.206.45.43:5000/get",{key:key})
  
  setUrl(data.data.message);
       div.style.display="block";
