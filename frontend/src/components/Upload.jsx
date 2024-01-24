@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import {Link} from "react-router-dom"
 const Upload = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [objectId,setObjectId]=useState('test')
@@ -15,7 +16,7 @@ let data;
       formData.append('file', selectedFile);
     try {
         console.log({formData})
-        data = await axios.post("http://15.206.45.43:5000/post",formData)
+        data = await axios.post("http://127.0.0.1:5000/post",formData)
         console.log(data.data.key)
         setObjectId("Your File Key is:"+data.data.key)
     } catch (error) {
@@ -33,6 +34,8 @@ let data;
   return (
     <div className="main_upload_container" style={{display:'flex',alignItems:'center',justifyContent:'center',backgroundColor:'grey',minWidth:'100vw',minHeight:'100vh'}}>
     <div className="main_upload_child_container" style={{minWidth:'75vw',minHeight:'75vh',backgroundColor:'white',display:'flex',alignItems:'center',justifyContent:'center',flexDirection:'column'}}>
+    <h1>Samanta Secret Box</h1> 
+     <p>share secret files, by secret keys</p>
     <div className="main_upload_input" style={{margin:'2vw'}}>
       <form encType="multipart/form-data">
   <input type="file"  onChange={handleFileChange} />
@@ -48,7 +51,19 @@ let data;
         {objectId}
        </div>
       </div>
+      <div className="menu" style={{display:'flex'}}>
+      <div className="menu_upload" style={{margin:'0 2vw'}}>
+        <Link to="/upload">Upload</Link>
+      </div>
+      <div className="menu_show" style={{margin:'0 2vw'}}>
+      <Link to="/show">Show</Link>
+      </div>
+      <div className="menu_delete" style={{margin:'0 2vw'}}>
+      <Link to="/delete">Delete</Link>
+      </div>
     </div>
+    </div>
+    
     </div>
   );
 };
