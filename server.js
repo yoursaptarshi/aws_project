@@ -33,11 +33,11 @@ const postObject  = async(req,res)=>{
         }
        
         const clientParams = {
-            region:'ap-south-1',
+            region:'',
 
             credentials:{
-                accessKeyId:'AKIA3YFZ73OKNS2V6ZDS',
-            secretAccessKey:'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'
+                accessKeyId:'',
+            secretAccessKey:''
             }
         }
         
@@ -88,14 +88,14 @@ const getObject =async(req,res)=>{
         })
     }
     
-    const clientParams = {
-        region:'ap-south-1',
+         const clientParams = {
+            region:'',
 
-        credentials:{
-            accessKeyId:'AKIA3YFZ73OKNS2V6ZDS',
-        secretAccessKey:'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'
+            credentials:{
+                accessKeyId:'',
+            secretAccessKey:''
+            }
         }
-    }
     const getObjectParams = {
         Bucket:'project-yoursaptarshi',
         Key:key,          
@@ -128,12 +128,12 @@ const deleteObject = async(req,res)=>{
             })
         }
       
-        const clientParams = {
-            region:'ap-south-1',
+            const clientParams = {
+            region:'',
 
             credentials:{
-                accessKeyId:'AKIA3YFZ73OKNS2V6ZDS',
-            secretAccessKey:'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'
+                accessKeyId:'',
+            secretAccessKey:''
             }
         }
        
